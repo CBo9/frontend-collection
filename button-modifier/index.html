@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Button Modifier</title>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style/css/style.min.css">
+		<style id="lazersColors"></style> 
+		<style id="lazersSpeed"></style> 
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="btn-box col-lg-6 offset-lg-3">
+					<button type="button" class="btn btn-lazers" id="mainButton"><div id="bg"></div>Dark</button>
+					<div id='settingsControl'>
+						<h2>Settings</h2>
+						<div id="activeControl">
+							<legend><b>Activate</b> the button</legend>
+							<label class="switch">
+						        <input id="mainBtnSwitch" type="checkbox" onchange="animationSwitch()">
+						        <span class="slider round"></span>
+					        </label>
+				   		 </div>
+				        <hr>
+				        <div id="colorControl">
+				        	<legend>Choose a <b>color</b></legend>
+							<ul id="lazers-colors">
+								<li class="active color-choice round" id="blue-color" onclick="setActiveColor('blue')"></li>
+								<li class="color-choice round" id="red-color" onclick="setActiveColor('red')"></li>
+								<li class="color-choice round" id="green-color" onclick="setActiveColor('green')"></li>
+								<li class="color-choice round" id="yellow-color" onclick="setActiveColor('yellow')"></li>   
+							</ul>
+						</div>
+						<hr>
+						<div id='speedControl'>
+							<legend>Change the <b>speed</b></legend>
+							<input type="range" id="inputSpeed" oninput="setSpeed()" min="-4000" max="-400" step="400" value="-1200">
+							<span id="currentSpeed">Animation duration: <b>1200</b> ms</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/script.js"></script>
+	</body>
+</html>
