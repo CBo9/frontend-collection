@@ -13,63 +13,58 @@
 		</style>
 	</head>
 	<body>
-		<img id="DVD" src="dvd.gif" height="409px" width="487" >
+		<img id="DVD" src="dvd.gif" >
 	
 		<script type="text/javascript">
-			var x = 0;
+			var x = 0; //starting x and y position
 			var y = 0;
-			var xForward = true;
-			var yForward = true;
-			var w = window.innerWidth;
-			var h = window.innerHeight;
-			var posXMax = w - 485;
-			var posYMax = h - 409;
 			var posX = 0;
 			var posY = 0;
-			var test = true;
+			var xForward = true;   // when wForward is true it means the logo is going to the right, else he is going to the left
+			var yForward = true;  //same but for y (vertical)
+			var w = window.innerWidth;  //get window dimensions
+			var h = window.innerHeight;
+			var posXMax = w - 487;  //adds the size of the logo to get the maximum x and y possible
+			var posYMax = h - 409;
 			function getPath(){
-				posX = x;
-				posY = y;
-				test = true;
-				while( test ){
-					posX = xForward ? posX + 1: posX - 1;
+				x = posX;	
+				y = posY;
+				let test = true;
+				while( test ){  //creates a loop ...
+					posX = xForward ? posX + 1: posX - 1;  //that increments/decrements on both horizontal and vertical axis ...
 					posY = yForward ? posY + 1: posY -1;
 
-					if( (posX == 0 || posX == posXMax) || (posY == 0 || posY== posYMax)){
+					if( (posX == 0 || posX == posXMax) || (posY == 0 || posY== posYMax)){ //until the maximum x or y position is reached
 						test = false;
 					}
 				}
 
-				if((posX == 0 || posX == posXMax) && (posY == 0 || posY == posYMax)){
-					//YOUPI
-					xForward = !xForward;
+				if((posX == 0 || posX == posXMax) && (posY == 0 || posY == posYMax)){ //case where the logo reach a corner (reverts both directions)
+					xForward = !xForward;																	
 					yForward = !yForward;
-				}else if(posX == 0 || posX == posXMax){
+				}else if(posX == 0 || posX == posXMax){   //case where the logo hits left or right border
 					xForward = !xForward;
-				}else{
+				}else{									  //case where the logo hits top or bottom border
 					yForward = !yForward;
 				}
 
-				let triO = Math.pow(Math.abs(posX - x),2) + Math.pow(Math.abs(posY - y),2);
-				let triH = Math.sqrt(triO);
-				let duration = triH/0.1;
-				console.log(duration);
+				let triO = Math.pow(Math.abs(posX - x),2) + Math.pow(Math.abs(posY - y),2); //get the sum of (x,posX)² and (y, posY)²
+				let triH = Math.sqrt(triO);				//get the square root of the previous result (distance between starting point and destination)
+				let duration = triH/0.1;				//corresponds to 100px/s or 0.1px/ms (increase the divider to speed up the animation)
 
-				document.getElementById('DVD').style.transition = duration + 'ms linear';
-				document.getElementById('DVD').style.transform = ('translate('+posX+'px,'+posY+'px)');
-				
-				x = posX;
-				y = posY;
-				touchEdge(duration);
 
+				document.getElementById('DVD').style.transform = ('translate('+posX+'px,'+posY+'px)'); //apply css property transform with the coordinates of the next impact on a border
+				document.getElementById('DVD').style.transition = duration + 'ms linear';  //duration changed to keep same speed 
+		
+				waitAnim(duration);
 			}
 
-			function touchEdge(duration) {
-			  timeoutID = window.setTimeout(getPath, duration + 10 );
-			  console.log('go');
+			//waitAnim(D) will wait for D milliseconds (the travel time) before calling getPath again
+			function waitAnim(duration) {           
+			  timeoutID = window.setTimeout(getPath, duration + 20);
 			}
 
-			window.onload = (event) => {
+			window.onload = (event) => { 
 			  getPath();
 			};
 			
