@@ -19,4 +19,13 @@ I made a button animation using __SCSS__. This button can be modified in real ti
 
 [<img src="https://media.discordapp.net/attachments/574881648211132418/743506429683695736/btn-modifier.gif" alt="button modifier demo">](button-modifier)
 ___
+
+
+- ## *Pulsic*
+Front-page of a __music streaming platform__. This is a __static web page__ so all links are *disabled*.
+
+__WORK IN PROGRESS__ (*does not represent the final look of the project*)
+
+*[Go to folder](music-platform)* 
+___
 - ## *More to come soon*
