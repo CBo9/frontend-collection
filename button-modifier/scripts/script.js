@@ -1,4 +1,9 @@
 var activeColor = 'blue';
+
+/*
+** changes the color of the button
+** gives an "active" class to selected color
+*/
 function setActiveColor(color){
 	document.getElementById(activeColor+'-color').classList.remove('active');
 	document.getElementById(color+'-color').classList.add('active');
@@ -14,16 +19,25 @@ function setActiveColor(color){
 	document.getElementById('lazersColors').innerHTML = btnCss;
 }
 
+/*
+** changes the animation duration of the main button
+** displays the duration next to the input
+*/
 function setSpeed(){
 	let duration = Math.abs(document.getElementById('inputSpeed').value);
 	let btnCss = '.btn-lazers:hover::before, .btn-lazers.active::before{animation-duration:  ' + duration + 'ms; } .btn-lazers:hover::after, .btn-lazers.active::after{animation-duration:  ' + duration + 'ms ; }';
 	document.getElementById('lazersSpeed').innerHTML = btnCss;
+
 	let display = document.getElementById('currentSpeed');
 	let displayText = display.innerHTML;
 	let newDisplay = displayText.replace(/\d+/, duration);
 	display.innerHTML = newDisplay;
 }
 
+
+/*
+** when activated, simulates :hover on the main button
+*/
 function animationSwitch(){
 	let mainButton = document.getElementById('mainButton');
 	let switchButton = document.getElementById('mainBtnSwitch');
