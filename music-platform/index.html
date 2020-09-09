@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<title>Pulsic Web, listen to your favorite music</title>
-		<link rel="shortcut icon" type="image/png" href="images/pulsic-favicon.png"/>
+		<link rel="shortcut icon" type="image/png" href="images/icons/pulsic-favicon.png"/>
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	    <link rel="stylesheet" type="text/css" href="style/css/poppins.css">
 	    <link rel="stylesheet" type="text/css" href="style/css/pulsic.min.css">
+	    <link rel="stylesheet" type="text/css" href="style/css/media.min.css">
 	</head>
 	<body>
 		<header> 
@@ -34,8 +35,123 @@
 			</div>
 		</header>
 
+		<div id="mainContent">
+
+			<div id="topSections">
+				<section class="container-full column" id="main">
+					<div>
+						<h1 id="title">Pulsic</h1>
+						<p>Listen to all your favorite artists</p>
+					</div>
+					<div class="logoAnim">
+						<img src="images/pulsic-logo.png" alt="pulsic logo" id="spinningLogo">
+					</div>
+				</section>
 
 
+				<section class="container-full column about">
+					<h2>Why Pulsic?</h2>
+					<div class="container">
+						<div class="about-item">
+							<h3>Music</h3>
+							<p>Get instant access to music from famous artists to local beatmakers.</p>
+						</div>
+						<div class="about-item">
+							<h3>Podcasts</h3>
+							<p>You also have access to a large selection of podcasts from all around the world.</p>
+						</div>
+						<div class="about-item">
+							<h3>Playlists</h3>
+							<p>Create your own playlist and share it with your friends or the entire community of Pulsic.</p>
+						</div>
+					</div>
+				</section>
+				<video muted autoplay loop id="bg">
+					<source src="images/background.mp4">
+				</video>
+			</div>
 
+
+			<section class="container-full column apps">
+				<h2>Listen to your music anywhere</h2>
+				<p>With Pulsic, you can listen to your favorite tunes cozy at home or on your way to work. We are available on the web, Google Play and Apple Store.</p> 
+				<div class="badges">
+					<img src="images/apple-store-logo.svg" class="store-badge">
+					<img src="images/google-play-badge.png" class="store-badge">
+				</div>
+			</section>
+
+
+			<section class="container column pricing">					
+				<h2>Choose a plan</h2>
+				<div class="plans">
+					<div class="pricing-plan free">
+						<h3>Free Plan</h3>
+						<span class="price">$0/month</span>
+						<ul>
+							<li class="in">Access to millions of tracks</li>
+							<li class="in">Create your own playlists</li>
+							<li class="out">No ads</li>
+							<li class="out">Best audio quality</li>
+							<li class="out">Download music and listen offline</li>
+						</ul>
+						<span class="moreInfo">More info</span>
+					</div>
+					<div class="pricing-plan premium">
+						<h3>Premium Plan</h3>
+						<span class="price">$4.99/month</span>
+						<ul>
+							<li class="in">Access to millions of tracks</li>
+							<li class="in">Create your own playlists</li>
+							<li class="in">No ads</li>
+							<li class="in">Best audio quality</li>
+							<li class="in">Download music and listen offline</li>
+						</ul>
+						<span class="moreInfo">More info</span>
+					</div>
+				</div>
+			</section>			
+		</div>
+
+		<footer class="container-full column" id="footer">
+			<div id="footer_content">
+				<div id="logo-footer">
+					<div>
+						<img src="images/pulsic-logo.png" alt="pulsic logo" height="40px">
+						<span>Pulsic</span>
+					</div>
+				</div>
+
+				<div id="footer_infos">
+					<div>
+						<h3>Pulsic</h3>
+						<ul class="footer-links">
+							<li><a href="#">Web player</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Careers</a></li>
+							<li><a href="#">Help</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Charts</h3>
+						<ul class="footer-links">
+							<li><a href="#">Trends</a></li>
+							<li><a href="#">Most popular</a></li>
+							<li><a href="#">Categories</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Legal</h3>
+						<ul class="footer-links">
+							<li><a href="#">Legal information</a></li>
+							<li><a href="#">Privacy policy</a></li>
+							<li><a href="#">Cookies</a></li>
+							<li><a href="#">Ads</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<span id="copyright">@2020 Pulsic</span>
+		</footer>	
 	</body>
 </html>
