@@ -27,7 +27,7 @@
 @media screen and (max-width: 530px) {
   .plans {
     flex-direction: column; } }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 418px) {
   .badges {
     flex-direction: column; } }
 @media screen and (max-width: 380px) {
