@@ -1,0 +1,75 @@
+*{
+	margin: 0;
+	font-size: sans-serif;
+}
+
+html, body{
+	min-height: 100vh;
+}
+
+header{
+	height: 300px;
+	width: 100%;
+	position: relative;
+}
+
+#content{
+	display: flex;
+	height: 100%;
+	position: relative;
+	min-height: calc(100vh - 300px);
+}
+
+.tile{
+	position: relative;
+	width: 30%;
+	transition: 300ms;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} 
+
+.tile p{
+	color: white;
+	opacity: 0.6;
+	transition: 300ms;
+	font-size: 2em;
+}
+
+.tile:hover p{
+	opacity: 1;
+}
+
+.tile:hover{
+	width: 80%;
+	background-color: rgba(0,0,0,1);
+}
+
+
+#A318{
+	background: url(./images/tiles/A318.jpg);
+	background-size: cover auto;
+	background-position: center center;
+}
+
+#A319neo{
+	background: url(./images/tiles/A319neo.jpg);
+	background-size: cover auto;
+}
+
+#A320neo{
+	background: url(./images/tiles/A320neo.jpg);
+	background-size: cover auto;
+}
+
+#A321neo{
+	background: url(./images/tiles/A321neo.jpg);
+	background-size: auto 100%;
+	background-position: center center;
+}
+
+.ap-menu{
+	background-position-x: 50%;
+	background-position: center center;
+}
