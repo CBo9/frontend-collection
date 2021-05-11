@@ -27,14 +27,16 @@ header{
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: space-between;
 } 
 
 .tile p{
-	color: white;
+	color: #00205b;
 	opacity: 0.6;
 	transition: 300ms;
-	font-size: 2em;
+	font-size: 3em;
+	font-family: "Montserrat", sans-serif;
+	margin: 15% 0;
 }
 
 .tile:hover p{
@@ -49,27 +51,28 @@ header{
 
 #A318{
 	background: url(./images/tiles/A318.jpg);
-	background-size: cover auto;
-	background-position: center center;
+	background-size: cover ;
+	background-position: 65% center;
 }
 
 #A319neo{
 	background: url(./images/tiles/A319neo.jpg);
-	background-size: cover auto;
+	background-size: cover;
+	background-position: 20% center;
 }
 
 #A320neo{
 	background: url(./images/tiles/A320neo.jpg);
-	background-size: cover auto;
+	background-size: cover;
+	background-position: center center;
 }
 
 #A321neo{
 	background: url(./images/tiles/A321neo.jpg);
-	background-size: auto 100%;
+	background-size: cover;
 	background-position: center center;
 }
 
 .ap-menu{
-	background-position-x: 50%;
 	background-position: center center;
 }
