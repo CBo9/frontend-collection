@@ -3,7 +3,8 @@
   font-size: sans-serif; }
 
 html, body {
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: hidden; }
 
 header {
   height: 300px;
@@ -23,7 +24,7 @@ header {
       letter-spacing: 20px;
       font-size: 1.2em; }
 
-#content {
+.content {
   display: flex;
   height: 100%;
   position: relative;
@@ -69,7 +70,7 @@ header {
       font-family: "MontserratBlack", sans-serif;
       font-size: 1.3em;
       margin-top: 10px;
-      transform: translateY(-25px), scale(2, 1);
+      transform: translateY(-25px) scale(1.75, 1);
       transition: 0ms;
       opacity: 0; }
   .tile:hover {
@@ -84,7 +85,7 @@ header {
         transform: scaleX(1);
         transition-delay: 150ms; }
     .tile:hover .arrow {
-      transform: translateY(0px);
+      transform: translateY(0px) scale(1.75, 1);
       transition: 500ms;
       transition-delay: 500ms;
       opacity: 1; }
@@ -111,3 +112,33 @@ header {
 
 .ap-menu {
   background-position: center center; }
+
+#top-menu {
+  z-index: 10;
+  top: 0;
+  transition: 500ms;
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  min-height: 300px; }
+  #top-menu .tile:hover .more {
+    background: rgba(255, 255, 255, 0.6);
+    transition: background 300ms; }
+  #top-menu .more {
+    color: #4C628C;
+    padding: 5px 10px;
+    transition: background 150ms; }
+    #top-menu .more p::after {
+      background: #4C628C; }
+  #top-menu h3 {
+    margin: auto; }
+
+#infos {
+  display: flex;
+  height: 100%;
+  width: 400%;
+  position: relative;
+  min-height: calc(100vh - 300px);
+  transition: transform 500ms ease-out; }
+  #infos div {
+    width: 100%; }

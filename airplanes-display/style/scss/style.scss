@@ -5,6 +5,7 @@
 
 html, body{
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 header{
@@ -28,7 +29,7 @@ header{
 	}
 }
 
-#content{
+.content{
 	display: flex;
 	height: 100%;
 	position: relative;
@@ -78,7 +79,7 @@ header{
 			font-family: "MontserratBlack", sans-serif;
 			font-size: 1.3em;
 			margin-top: 10px;
-			transform: translateY(-25px), scale(2,1);
+			transform: translateY(-25px) scale(1.75,1);
 			transition: 0ms;
 			opacity: 0;
 		}
@@ -98,7 +99,7 @@ header{
 			}
 		}
 		& .arrow{
-			transform: translateY(0px);
+			transform: translateY(0px)  scale(1.75,1);
 			transition: 500ms;
 			transition-delay: 500ms;
 			opacity: 1;
@@ -134,4 +135,41 @@ header{
 
 .ap-menu{
 	background-position: center center;
+}
+
+#top-menu{
+	z-index: 10;
+	top: 0;
+	transition: 500ms;
+	position: absolute;
+	height: 300px;
+	width: 100%;
+	min-height: 300px;
+	& .tile:hover .more{
+		background: rgba(255,255,255,.6);
+		transition: background 300ms;
+	}
+	& .more{
+		color: #4C628C;
+		padding: 5px 10px;
+		transition: background 150ms;
+		& p::after{
+			background: #4C628C;
+		}
+	}
+	& h3{
+		margin: auto;
+	}
+}
+
+#infos{
+	display: flex;
+	height: 100%;
+	width: 400%;
+	position: relative;
+	min-height: calc(100vh - 300px);
+	transition: transform 500ms ease-out;
+	& div{
+		width: 100%;
+	}
 }
