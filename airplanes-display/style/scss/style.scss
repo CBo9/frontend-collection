@@ -1,3 +1,5 @@
+$marineblue: #00205b;
+
 *{
 	margin: 0;
 	font-size: sans-serif;
@@ -22,11 +24,21 @@ header{
 		font-size: 4em;
 		color: #fff;
 		& span{
-			color: #00205b;
+			color: $marineblue;
 			letter-spacing: 20px;
 			font-size: 1.2em;
 		}
 	}
+}
+
+#page{
+	transform-origin: top center;
+	transition: 500ms;
+	transform: translateY(0);
+}
+
+.disabled{
+	transform: translateY(-300px) !important;
 }
 
 .content{
@@ -46,7 +58,7 @@ header{
 	align-items: center;
 	flex-direction: column;
 	& h3{
-		color: #00205b;
+		color: $marineblue;
 		opacity: 0.6;
 		transition: 300ms;
 		font-size: 3em;
@@ -137,14 +149,16 @@ header{
 	background-position: center center;
 }
 
-#top-menu{
+.topMenu{
 	z-index: 10;
 	top: 0;
 	transition: 500ms;
-	position: absolute;
 	height: 300px;
 	width: 100%;
 	min-height: 300px;
+	& .tile:hover{
+		width: 30%;
+	}
 	& .tile:hover .more{
 		background: rgba(255,255,255,.6);
 		transition: background 300ms;
@@ -169,7 +183,64 @@ header{
 	position: relative;
 	min-height: calc(100vh - 300px);
 	transition: transform 500ms ease-out;
-	& div{
+	background: url(../../images/clouds-panorama.jpg);
+	background-size: cover;
+	background-position: left center;
+	padding: 15px 0;
+	box-sizing: border-box;
+	& .aircraft_infos{
 		width: 100%;
+		display: flex;
+		flex-direction: column;
+		background: rgba(76,98,140,.7);
+		padding: 15px 30px;
+		margin: 0 15px;
+		position: relative;
+		font-size: 1.4em;
+		justify-content: space-between;
+		padding-bottom: 40px; 
+		& h3{
+			font-size: 3.2em;
+			font-family: "MontserratBold", sans-serif;
+		}
+		& .caracteristics{
+			font-family: "Montserrat", sans-serif;
+			display: flex;
+			& h4{
+				font-size: 2.1em;
+			}
+			& ul{
+				list-style: none;
+				padding: 10px;
+				&.labels li{
+					text-align: right;
+				}
+			}
+		}
+		& .description{
+			display: flex;
+			width: 60%;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			font-family: "MontserratExtraLight", sans-serif;
+			font-size: 1.3em;
+			margin: auto;
+		}
+	}
+}
+
+.backButton{
+	font-family: "MontserratBlack", sans-serif;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 1.8em;
+	color: #f00;
+	cursor: pointer;
+	opacity: 0.3;
+	transition: opacity 300ms;
+	&:hover{
+		opacity: .8;
 	}
 }

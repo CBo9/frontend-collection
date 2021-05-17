@@ -8,65 +8,127 @@
 	<script src="https://unpkg.com/vue@3.0.2/dist/vue.global.prod.js"></script>
 </head>
 <body id="GoodApp">
-	<header>
-		<h1>La famille des <span>Airbus A320<span></h1>
-	</header>
-	<div :class="['content', {disabled: infos != null}]">
-		<div class="tile ap-menu" id="A318" @click = "showInfos(0)">
-			<h3>A318</h3>
-			<div class="more">
-				<p>en savoir plus</p>
-				<div class="arrow">V</div>
+	<div id="page" :class="{disabled: isOpen == true}">
+		<header>
+			<h1>La famille des <span>Airbus A320</span></h1>
+		</header>
+		<div :class="['content', {topMenu: isOpen == true}]">
+			<div class="tile ap-menu" id="A318" @click = "showInfos(0)">
+				<h3>A318</h3>
+				<div class="more">
+					<p>en savoir plus</p>
+					<div class="arrow">V</div>
+				</div>
+			</div>
+			<div class="tile ap-menu" id="A319neo" @click = "showInfos(1)">
+				<h3>A319neo</h3>
+				<div class="more">
+					<p>en savoir plus</p>
+					<div class="arrow">V</div>
+				</div>
+			</div>
+			<div class="tile ap-menu" id="A320neo" @click = "showInfos(2)">
+				<h3>A320neo</h3>
+				<div class="more">
+					<p>en savoir plus</p>
+					<div class="arrow">V</div>
+				</div>
+			</div>
+			<div class="tile ap-menu" id="A321neo" @click = "showInfos(3)">
+				<h3>A321neo</h3>
+				<div class="more">
+					<p>en savoir plus</p>
+					<div class="arrow">V</div>
+				</div>
 			</div>
 		</div>
-		<div class="tile ap-menu" id="A319neo" @click = "showInfos(1)">
-			<h3>A319neo</h3>
-			<div class="more">
-				<p>en savoir plus</p>
-				<div class="arrow">V</div>
+		<div id="infos">
+			<div v-for="aircraft in infos" class="aircraft_infos">
+				<h3> {{ aircraft.name }} </h3>
+				<section class="description">
+					<p> {{ aircraft.description }} </p>
+				</section>
+				<section class="caracteristics">
+					<h4>Caractéristiques</h4>
+					<ul class="labels">
+						<li>Hauteur</li>
+						<li>Longueur</li>
+						<li>Passagers max</li>
+						<li>Autonomie</li>
+						<li>Carburant max</li>
+					</ul>
+					<ul class="values"> 
+						<li>{{ aircraft.height.toLocaleString('fr') }}m</li>
+						<li>{{ aircraft.length.toLocaleString('fr') }}m</li>
+						<li>{{ aircraft.max_seating }} passagers</li>
+						<li>{{ aircraft.range.toLocaleString('fr') }}km</li>
+						<li>{{ aircraft.max_fuel.toLocaleString('fr') }}L</li>
+					</ul>
+				</section>
+				<div class="backButton" @click="showHome()"><span>X</span></div>
 			</div>
 		</div>
-		<div class="tile ap-menu" id="A320neo" @click = "showInfos(2)">
-			<h3>A320neo</h3>
-			<div class="more">
-				<p>en savoir plus</p>
-				<div class="arrow">V</div>
-			</div>
-		</div>
-		<div class="tile ap-menu" id="A321neo" @click = "showInfos(3)">
-			<h3>A321neo</h3>
-			<div class="more">
-				<p>en savoir plus</p>
-				<div class="arrow">V</div>
-			</div>
-		</div>
-	</div>
-	<div id="infos">
-		<div>Coucou ici c'est les infos 1</div>
-		<div>Coucou ici c'est les infos 2</div>
-		<div>Coucou ici c'est les infos 3</div>
-		<div>Coucou ici c'est les infos 4</div>
-	</div>
 
-		
-	<script type="text/javascript">
-		const GoodApp = {
-			data() {
-				return {
-					infos: null
-			    }
-			},
-			methods: {
-				showInfos(tab){
-					let content = document.querySelector(".content");
-					content.setAttribute("id", "top-menu");
-					document.querySelector("#infos").style.transform = "translateX(-" + (tab * 25) + "%)";
+			
+		<script type="text/javascript">
+			const GoodApp = {
+				data() {
+					return {
+						isOpen: false,
+						infos: [
+							{
+								name: 'A318',
+								height: 12.56,
+								length: 31.44,
+								max_seating: 132,
+								range: 5750,
+								max_fuel: 24210,
+								description: "Pouvant accueillir généralement entre 90 et 110 passagers, l'A318 apporte tous les avantages de la famille A320 à une variété d'itinéraires possibles adaptés à un avion légèrement plus petit. Avec un avion en quatre tailles, l'A318 offre un rendement énergétique imbattable, une fiabilité opérationnelle exceptionnelle et un confort des passagers supérieur - des qualités qui contribuent à faire de la famille A320 la famille d'avions la plus prospère jamais conçue. Sa qualité durable met en évidence l'éclat et l'innovation au cœur d'Airbus."
+							},
+							{
+								name: 'A319neo',
+								height: 11.76,
+								length: 33.84,
+								max_seating: 160,
+								range: 6850,
+								max_fuel: 26730,
+								description: "L'avion à fuselage raccourci de la ligne d'appareils révolutionnaire d'Airbus A320neo (\"New Engine Option\") - l'A319neo - peut accueillir de 120 à 150 passagers en deux classes ou jusqu'à 160 dans une configuration haute densité avec une autonomie allant jusqu'à 6850 kilomètres (3750 miles nautiques). Le choix de deux moteurs de nouvelle génération (le PurePower PW1100G-JM de Pratt and Whitney et le LEAP-1A de CFM International) contribue à son efficacité opérationnelle, ainsi que l'incorporation de grands dispositifs en bout d'aile (appelés Sharklets) économissant du carburant ."
+							},
+							{
+								name: 'A320neo',
+								height: 11.76,
+								length: 37.57,
+								max_seating: 194,
+								range: 6300,
+								max_fuel: 26730,
+								description: "L’A320neo (\"New Engine Option\") est l’une des nombreuses mises à niveau introduites par Airbus pour aider à maintenir la position de sa gamme de produits A320 en tant que famille d’avions monocouloirs la plus avancée et la plus économe en carburant au monde. L'avion de ligne de base A320neo a le choix entre deux moteurs de nouvelle génération (le PurePower PW1100G-JM de Pratt et Whitney et le LEAP-1A de CFM International) et dispose de grands dispositifs en bout d'aile (appelés Sharklets) économissant du carburant   "
+							},
+							{
+								name: 'A321neo',
+								height: 11.76,
+								length: 44.51,
+								max_seating: 244,
+								range: 7400,
+								max_fuel: 32940,
+								description: "La qualité et l’efficacité à la pointe de l’industrie de la famille A320 d’Airbus - dont l’A321 fait partie - ont été encore améliorées avec ses nouvelles versions de biréacteur de ligne avec option moteur (NEO). Pour l'A321neo, Airbus a augmenté la capacité de sièges avec une utilisation optimisée de l'espace de la cabine, des limites de sortie accrues et une nouvelle configuration de porte de cabine. Cette option «Cabin-Flex» a augmenté la capacité maximale de l'avion à 244 sièges, tout en offrant un niveau de confort élevé aux passagers."
+							}
+						]
+				    }
+				},
+				methods: {
+					showInfos(tab){
+						this.isOpen = true;
+						document.querySelector("#infos").style.transform = "translateX(-" + (tab * 25) + "%)";
+					},
+					showHome(){
+						this.isOpen = false;
+					}
 				}
 			}
-		}
 
-		var app = Vue.createApp(GoodApp);
-		app.mount('#GoodApp');
-	</script>
+			var app = Vue.createApp(GoodApp);
+			app.mount('#GoodApp');
+		</script>
+	</div>
 </body>
 </html>
