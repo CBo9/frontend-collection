@@ -11,7 +11,7 @@ html, body{
 }
 
 header{
-	height: 300px;
+	height: 28vh;
 	width: 100%;
 	position: relative;
 	background: #98bbcf;
@@ -38,14 +38,14 @@ header{
 }
 
 .disabled{
-	transform: translateY(-300px) !important;
+	transform: translateY(-28vh) !important;
 }
 
 .content{
 	display: flex;
 	height: 100%;
 	position: relative;
-	min-height: calc(100vh - 300px);
+	min-height: calc(100vh - 28vh);
 }
 
 .tile{
@@ -153,9 +153,9 @@ header{
 	z-index: 10;
 	top: 0;
 	transition: 500ms;
-	height: 300px;
+	height: 28vh;
 	width: 100%;
-	min-height: 300px;
+	min-height: 28vh;
 	& .tile:hover{
 		width: 30%;
 	}
@@ -178,10 +178,11 @@ header{
 
 #infos{
 	display: flex;
-	height: 100%;
+	height: calc(100vh - 28vh);
 	width: 400%;
 	position: relative;
-	min-height: calc(100vh - 300px);
+	min-height: calc(100vh - 28vh);
+	max-height: calc(100vh - 28vh);
 	transition: transform 500ms ease-out;
 	background: url(../../images/clouds-panorama.jpg);
 	background-size: cover;
@@ -192,7 +193,7 @@ header{
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		background: rgba(76,98,140,.7);
+		background: rgba(76,98,140,.5);
 		padding: 15px 30px;
 		margin: 0 15px;
 		position: relative;
@@ -202,6 +203,8 @@ header{
 		& h3{
 			font-size: 3.2em;
 			font-family: "MontserratBold", sans-serif;
+			color: rgba(white, .5);
+			text-shadow: 1px 1px 20px white;
 		}
 		& .caracteristics{
 			font-family: "Montserrat", sans-serif;
@@ -224,7 +227,7 @@ header{
 			align-items: center;
 			text-align: center;
 			font-family: "MontserratExtraLight", sans-serif;
-			font-size: 1.3em;
+			font-size: 123%;
 			margin: auto;
 		}
 	}
