@@ -23,6 +23,7 @@ header{
 		font-style: italic;
 		font-size: 4em;
 		color: #fff;
+		text-align: center;
 		& span{
 			color: $marineblue;
 			letter-spacing: 20px;
@@ -46,6 +47,8 @@ header{
 	height: 100%;
 	position: relative;
 	min-height: calc(100vh - 28vh);
+	overflow-y: hidden;
+	overflow-x: auto;
 }
 
 .tile{
@@ -57,13 +60,15 @@ header{
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
+	overflow: hidden;
 	& h3{
 		color: $marineblue;
 		opacity: 0.6;
 		transition: 300ms;
 		font-size: 3em;
 		font-family: "Montserrat", sans-serif;
-		margin: 15% 0;
+		margin: auto 0;
+		padding: 5px;
 	}
 	& .more{
 		color: white;
@@ -91,7 +96,7 @@ header{
 			font-family: "MontserratBlack", sans-serif;
 			font-size: 1.3em;
 			margin-top: 10px;
-			transform: translateY(-25px) scale(1.75,1);
+			transform: translateY(-25px);
 			transition: 0ms;
 			opacity: 0;
 		}
@@ -111,15 +116,13 @@ header{
 			}
 		}
 		& .arrow{
-			transform: translateY(0px)  scale(1.75,1);
+			transform: translateY(0px) ;
 			transition: 500ms;
 			transition-delay: 500ms;
 			opacity: 1;
 		}
 	}
 } 
-
-
 
 #A318{
 	background: url(../../images/tiles/A318.jpg);
@@ -171,15 +174,11 @@ header{
 			background: #4C628C;
 		}
 	}
-	& h3{
-		margin: auto;
-	}
 }
 
 #infos{
 	display: flex;
 	height: calc(100vh - 28vh);
-	width: 400%;
 	position: relative;
 	min-height: calc(100vh - 28vh);
 	max-height: calc(100vh - 28vh);
@@ -189,6 +188,7 @@ header{
 	background-position: left center;
 	padding: 15px 0;
 	box-sizing: border-box;
+	overflow-y: auto;
 	& .aircraft_infos{
 		width: 100%;
 		display: flex;
@@ -200,6 +200,8 @@ header{
 		font-size: 1.4em;
 		justify-content: space-between;
 		padding-bottom: 40px; 
+		overflow-y: auto;
+		scrollbar-width: none;
 		& h3{
 			font-size: 3.2em;
 			font-family: "MontserratBold", sans-serif;
@@ -209,14 +211,23 @@ header{
 		& .caracteristics{
 			font-family: "Montserrat", sans-serif;
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			& .specs{
+				display: flex;
+			}
 			& h4{
 				font-size: 2.1em;
+				margin: 10px 0;
+				text-decoration: underline;
 			}
 			& ul{
 				list-style: none;
 				padding: 10px;
 				&.labels li{
 					text-align: right;
+					color: $marineblue; 
+					font-weight: bold;
 				}
 			}
 		}
@@ -246,4 +257,9 @@ header{
 	&:hover{
 		opacity: .8;
 	}
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }

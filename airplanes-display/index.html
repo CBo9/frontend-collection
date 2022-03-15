@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AIRBUS Famille A320</title>
+	<title>✈️ AIRBUS Famille A320</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./fonts/montserrat.css">	
 	<link rel="stylesheet" type="text/css" href="style/css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="style/css/media.min.css">
 	<script src="https://unpkg.com/vue@3.0.2/dist/vue.global.prod.js"></script>
 </head>
 <body id="GoodApp">
@@ -42,7 +44,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="infos">
+		<div id="infos" >
 			<div v-for="aircraft in infos" class="aircraft_infos">
 				<h3> {{ aircraft.name }} </h3>
 				<section class="description">
@@ -50,20 +52,22 @@
 				</section>
 				<section class="caracteristics">
 					<h4>Caractéristiques</h4>
-					<ul class="labels">
-						<li>Hauteur</li>
-						<li>Longueur</li>
-						<li>Passagers max</li>
-						<li>Autonomie</li>
-						<li>Carburant max</li>
-					</ul>
-					<ul class="values"> 
-						<li>{{ aircraft.height.toLocaleString('fr') }}m</li>
-						<li>{{ aircraft.length.toLocaleString('fr') }}m</li>
-						<li>{{ aircraft.max_seating }} passagers</li>
-						<li>{{ aircraft.range.toLocaleString('fr') }}km</li>
-						<li>{{ aircraft.max_fuel.toLocaleString('fr') }}L</li>
-					</ul>
+					<div class="specs">
+						<ul class="labels">
+							<li>Hauteur</li>
+							<li>Longueur</li>
+							<li>Passagers max</li>
+							<li>Autonomie</li>
+							<li>Carburant max</li>
+						</ul>
+						<ul class="values"> 
+							<li>{{ aircraft.height.toLocaleString('fr') }}m</li>
+							<li>{{ aircraft.length.toLocaleString('fr') }}m</li>
+							<li>{{ aircraft.max_seating }} passagers</li>
+							<li>{{ aircraft.range.toLocaleString('fr') }}km</li>
+							<li>{{ aircraft.max_fuel.toLocaleString('fr') }}L</li>
+						</ul>
+					</div>
 				</section>
 				<div class="backButton" @click="showHome()"><span>X</span></div>
 			</div>
@@ -118,7 +122,8 @@
 				methods: {
 					showInfos(tab){
 						this.isOpen = true;
-						document.querySelector("#infos").style.transform = "translateX(-" + (tab * 25) + "%)";
+						document.querySelector("#infos").style.width = "calc(100% * " + this.infos.length + ")";
+						document.querySelector("#infos").style.transform = "translateX(-" + (tab * (100/this.infos.length)) + "%)";
 					},
 					showHome(){
 						this.isOpen = false;

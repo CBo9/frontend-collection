@@ -18,7 +18,8 @@ header {
     font-family: "MontserratBold", sans-serif;
     font-style: italic;
     font-size: 4em;
-    color: #fff; }
+    color: #fff;
+    text-align: center; }
     header h1 span {
       color: #00205b;
       letter-spacing: 20px;
@@ -36,7 +37,9 @@ header {
   display: flex;
   height: 100%;
   position: relative;
-  min-height: calc(100vh - 28vh); }
+  min-height: calc(100vh - 28vh);
+  overflow-y: hidden;
+  overflow-x: auto; }
 
 .tile {
   position: relative;
@@ -46,14 +49,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow: hidden; }
   .tile h3 {
     color: #00205b;
     opacity: 0.6;
     transition: 300ms;
     font-size: 3em;
     font-family: "Montserrat", sans-serif;
-    margin: 15% 0; }
+    margin: auto 0;
+    padding: 5px; }
   .tile .more {
     color: white;
     margin-bottom: 10%; }
@@ -78,7 +83,7 @@ header {
       font-family: "MontserratBlack", sans-serif;
       font-size: 1.3em;
       margin-top: 10px;
-      transform: translateY(-25px) scale(1.75, 1);
+      transform: translateY(-25px);
       transition: 0ms;
       opacity: 0; }
   .tile:hover {
@@ -93,7 +98,7 @@ header {
         transform: scaleX(1);
         transition-delay: 150ms; }
     .tile:hover .arrow {
-      transform: translateY(0px) scale(1.75, 1);
+      transform: translateY(0px);
       transition: 500ms;
       transition-delay: 500ms;
       opacity: 1; }
@@ -139,13 +144,10 @@ header {
     transition: background 150ms; }
     .topMenu .more p::after {
       background: #4C628C; }
-  .topMenu h3 {
-    margin: auto; }
 
 #infos {
   display: flex;
   height: calc(100vh - 28vh);
-  width: 400%;
   position: relative;
   min-height: calc(100vh - 28vh);
   max-height: calc(100vh - 28vh);
@@ -154,7 +156,8 @@ header {
   background-size: cover;
   background-position: left center;
   padding: 15px 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow-y: auto; }
   #infos .aircraft_infos {
     width: 100%;
     display: flex;
@@ -165,7 +168,9 @@ header {
     position: relative;
     font-size: 1.4em;
     justify-content: space-between;
-    padding-bottom: 40px; }
+    padding-bottom: 40px;
+    overflow-y: auto;
+    scrollbar-width: none; }
     #infos .aircraft_infos h3 {
       font-size: 3.2em;
       font-family: "MontserratBold", sans-serif;
@@ -173,14 +178,22 @@ header {
       text-shadow: 1px 1px 20px white; }
     #infos .aircraft_infos .caracteristics {
       font-family: "Montserrat", sans-serif;
-      display: flex; }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+      #infos .aircraft_infos .caracteristics .specs {
+        display: flex; }
       #infos .aircraft_infos .caracteristics h4 {
-        font-size: 2.1em; }
+        font-size: 2.1em;
+        margin: 10px 0;
+        text-decoration: underline; }
       #infos .aircraft_infos .caracteristics ul {
         list-style: none;
         padding: 10px; }
         #infos .aircraft_infos .caracteristics ul.labels li {
-          text-align: right; }
+          text-align: right;
+          color: #00205b;
+          font-weight: bold; }
     #infos .aircraft_infos .description {
       display: flex;
       width: 60%;
@@ -203,3 +216,9 @@ header {
   transition: opacity 300ms; }
   .backButton:hover {
     opacity: .8; }
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */ }

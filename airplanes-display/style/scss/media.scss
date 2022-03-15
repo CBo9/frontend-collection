@@ -1,0 +1,58 @@
+@media screen and  (max-width: 1120px){
+	#infos .aircraft_infos .description{
+		width: auto;
+	}
+}
+
+@media screen and  (max-width: 970px){
+  .tile h3{
+  	transition: 500ms;
+  	font-size: 1.5em;
+  	opacity: 1;
+  	font-weight: bold;
+  	background: rgba(255, 255, 255, .6);
+  	transform: rotate(-50deg);
+  }
+}
+
+@media screen and  (max-width: 714px){
+	header h1{
+		font-size: 2em;
+	}
+}
+
+@media screen and  (max-width: 500px){
+	.more{
+		display: none;
+	}
+	.tile{
+		justify-content: center;
+	}
+	#infos .aircraft_infos .caracteristics h4{
+		font-size: 1.5em;
+	}
+}
+
+@media screen and  (max-width: 430px){
+	#infos .aircraft_infos .description{
+		font-size: 1em;
+		font-family: "MontserratLight", sans-serif;
+	}
+
+	#infos .aircraft_infos h3{
+		text-align: center;
+		font-size: 1.7em;
+	}
+}
+
+@media screen and  (max-height: 700px){
+	.tile .more{
+		display: none;
+	}
+}
+
+@media screen and  (max-height: 600px){
+	header h1{
+		font-size: 2em;
+	}
+}
